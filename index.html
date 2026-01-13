@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮膚問題自我檢測與護理全書</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .checkbox-wrapper:checked + div {
+            background-color: #eff6ff;
+            border-color: #3b82f6;
+        }
+        .checkbox-wrapper:checked + div .check-icon {
+            opacity: 1;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold"><i class="fas fa-user-md mr-2"></i>皮膚問題自我檢測</h1>
+            <button onclick="document.getElementById('full-guide').scrollIntoView({behavior: 'smooth'})" class="text-sm bg-blue-700 hover:bg-blue-800 px-3 py-1 rounded transition">
+                直接看護理指南
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+
+        <!-- Disclaimer -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 rounded shadow-sm text-sm text-yellow-800">
+            <p class="font-bold"><i class="fas fa-exclamation-triangle mr-1"></i> 免責聲明</p>
+            <p>本工具資訊彙整自皮膚科醫師訪談與醫學文獻，僅供自我衛教參考。若症狀嚴重、紅腫擴散或伴隨發燒，請務必尋求專業醫師診治。</p>
+        </div>
+
+        <!-- Survey Section -->
+        <section id="survey" class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+            <div class="p-6 bg-blue-50 border-b border-blue-100">
+                <h2 class="text-xl font-bold text-blue-900 mb-2">📋 症狀自我評估問卷</h2>
+                <p class="text-gray-600">請勾選符合您或孩子當前狀況的所有描述，系統將協助分析可能的皮膚問題。</p>
+            </div>
+
+            <form id="diagnosisForm" class="p-6 space-y-8">
+                
+                <!-- Group A -->
+                <div class="group-section">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 border-l-4 border-red-400 pl-3">A 組症狀：環境與發作型態</h3>
+                    <div class="grid md:grid-cols-1 gap-3">
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupA" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">發作情境</span>
+                                    <span class="text-gray-600 text-sm">最近處於高溫、潮濕環境，或曾經大量流汗。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupA" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">外觀特徵</span>
+                                    <span class="text-gray-600 text-sm">細小、密集的紅點或小水泡（像針頭大小）。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupA" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">好發部位</span>
+                                    <span class="text-gray-600 text-sm">易流汗部位（如：頸部、胸口、背部、腋下、腹股溝）。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupA" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">感覺</span>
+                                    <span class="text-gray-600 text-sm">刺痛感（Prickly）或灼熱感，皮膚摸起來溫度較高。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupA" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">緩解因素</span>
+                                    <span class="text-gray-600 text-sm">進入冷氣房、沖冷水澡或保持乾燥後，症狀明顯消退。</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Group B -->
+                <div class="group-section">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 border-l-4 border-blue-400 pl-3">B 組症狀：病程與質地</h3>
+                    <div class="grid md:grid-cols-1 gap-3">
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupB" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">發作情境</span>
+                                    <span class="text-gray-600 text-sm">症狀反覆發作（慢性），且在夜間或乾燥時癢感加劇。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupB" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">外觀特徵</span>
+                                    <span class="text-gray-600 text-sm">乾燥、脫屑、粗糙，嚴重時有裂痕或滲出組織液（出水）。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupB" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">好發部位</span>
+                                    <span class="text-gray-600 text-sm">臉頰、手肘窩、膝蓋窩、頸部等皺摺處（屈側）。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupB" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">感覺</span>
+                                    <span class="text-gray-600 text-sm">劇烈搔癢（Itch），讓人忍不住想抓，抓了更癢。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupB" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">家族史</span>
+                                    <span class="text-gray-600 text-sm">家族中有過敏性鼻炎、氣喘或異位性皮膚炎病史。</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Group C -->
+                <div class="group-section">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 border-l-4 border-yellow-400 pl-3">C 組症狀：特定型態</h3>
+                    <div class="grid md:grid-cols-1 gap-3">
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupC" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">外觀特徵</span>
+                                    <span class="text-gray-600 text-sm">圓形或環狀紅斑，邊緣清晰且隆起，中心可能較平坦。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupC" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">部位</span>
+                                    <span class="text-gray-600 text-sm">腹股溝、足部或其他潮濕處。</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="groupC" class="checkbox-wrapper peer sr-only">
+                            <div class="p-4 border rounded-lg hover:bg-gray-50 transition flex items-start">
+                                <div class="w-6 h-6 border-2 border-gray-300 rounded mr-3 flex items-center justify-center peer-checked:border-blue-500 peer-checked:bg-blue-500 text-white transition-colors">
+                                    <i class="fas fa-check text-xs opacity-0 check-icon transition-opacity duration-200"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold block text-gray-900">治療反應</span>
+                                    <span class="text-gray-600 text-sm">可能伴隨強烈搔癢，且使用類固醇藥膏後反而惡化。</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center pt-4">
+                    <button type="button" onclick="calculateDiagnosis()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 text-lg">
+                        <i class="fas fa-stethoscope mr-2"></i> 開始分析
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Result Section (Hidden initially) -->
+        <section id="result" class="hidden fade-in mb-8">
+            <div id="result-header" class="rounded-t-xl p-6 text-white text-center">
+                <h2 class="text-3xl font-bold mb-2">分析結果：<span id="diagnosis-title"></span></h2>
+                <p class="text-blue-100 text-lg">核心原則：<span id="core-principle" class="font-bold bg-white bg-opacity-20 px-2 py-1 rounded"></span></p>
+            </div>
+            <div class="bg-white rounded-b-xl shadow-lg p-6 border-x border-b border-gray-200">
+                <div id="specific-advice" class="mb-6">
+                    <!-- Dynamic Content -->
+                </div>
+                <div class="text-center">
+                    <button onclick="resetForm()" class="text-gray-500 underline hover:text-gray-700 text-sm">重新檢測</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Guide Section -->
+        <section id="full-guide" class="space-y-8">
+            <div class="flex items-center space-x-2 text-2xl font-bold text-gray-800 border-b pb-2">
+                <i class="fas fa-book-medical text-blue-600"></i>
+                <h2>詳細護理建議指南</h2>
+            </div>
+
+            <!-- 1. 保濕 -->
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm">1</span>
+                    保濕產品選擇 (Moisturizer)
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                        <h4 class="font-bold text-green-800 mb-2"><i class="fas fa-check-circle mr-1"></i> 針對濕疹 (Eczema)</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-angle-right text-green-500 mr-2"></i><strong>原則：</strong>越油越好（油膏 > 乳霜 > 乳液）。</li>
+                            <li><i class="fas fa-angle-right text-green-500 mr-2"></i><strong>成分：</strong>神經醯胺、凡士林、尿素。</li>
+                            <li><i class="fas fa-angle-right text-green-500 mr-2"></i><strong>冬季/嚴重：</strong>使用凡士林等油膏 (Ointment)。</li>
+                            <li><i class="fas fa-angle-right text-green-500 mr-2"></i><strong>夏季/日間：</strong>使用乳霜 (Cream)。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <h4 class="font-bold text-red-800 mb-2"><i class="fas fa-exclamation-circle mr-1"></i> 針對熱痱 (Heat Rash)</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-ban text-red-500 mr-2"></i><strong>絕對禁忌：</strong>不可塗抹凡士林或厚重油膏，會阻塞汗腺。</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i><strong>建議：</strong>清爽的爐甘石洗劑 (Calamine) 或蘆薈凝膠。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 清潔 -->
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm">2</span>
+                    清潔與洗澡 (Bathing)
+                </h3>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start"><i class="fas fa-thermometer-half text-blue-500 mt-1 mr-3"></i><span><strong>水溫：</strong>溫水（約 33-36°C），切勿用熱水燙洗。</span></li>
+                    <li class="flex items-start"><i class="fas fa-clock text-blue-500 mt-1 mr-3"></i><span><strong>時間：</strong>控制在 5-10 分鐘以內。</span></li>
+                    <li class="flex items-start"><i class="fas fa-pump-soap text-blue-500 mt-1 mr-3"></i><span><strong>用品：</strong>選擇「無皂鹼」、pH 5.5 弱酸性沐浴乳。</span></li>
+                    <li class="flex items-start"><i class="fas fa-hand-holding-water text-blue-500 mt-1 mr-3"></i><span><strong>擦乾：</strong>用毛巾「按壓」吸乾，禁止摩擦。</span></li>
+                    <li class="flex items-start bg-yellow-50 p-2 rounded"><i class="fas fa-star text-yellow-500 mt-1 mr-3"></i><span><strong>黃金時間：</strong>洗澡後 <strong>3 分鐘內</strong>，趁皮膚微濕立刻塗保濕劑。</span></li>
+                </ul>
+            </div>
+
+            <!-- 3. 衣物與環境 (Expanded) -->
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm">3</span>
+                    衣物選擇與環境管理 (Clothing & Environment)
+                </h3>
+                
+                <div class="space-y-6">
+                    <!-- Subsection: Material -->
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2 border-l-4 border-blue-400 pl-2">衣物材質：減少刺激是關鍵</h4>
+                        <div class="bg-blue-50 p-4 rounded-lg text-sm text-gray-700 space-y-2">
+                            <p><strong class="text-blue-700">✅ 最佳選擇：</strong>100% 純棉是公認標準，絲質亦佳（減少摩擦）。</p>
+                            <p><strong class="text-red-600">❌ 應避免：</strong>羊毛、合成纖維（如尼龍）、蕾絲、標籤或粗糙縫線。</p>
+                            <p class="mt-2 text-gray-600 italic"><i class="fas fa-info-circle"></i> 熱痱/汗疹特別建議：衣物必須「寬鬆」且「通風」，避免汗水長時間滯留。</p>
+                        </div>
+                    </div>
+
+                    <!-- Subsection: Laundry -->
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2 border-l-4 border-green-400 pl-2">洗滌方式：殺菌與無殘留</h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="border border-gray-200 p-3 rounded hover:bg-gray-50">
+                                <strong class="block text-gray-800 mb-1"><i class="fas fa-temperature-high text-red-500"></i> 水溫控制</strong>
+                                <p class="text-gray-600"><strong>60°C 熱水</strong>是殺死塵蟎（濕疹誘因）與疥蟲的有效溫度。建議每週以此溫度清洗床單。</p>
+                            </div>
+                            <div class="border border-gray-200 p-3 rounded hover:bg-gray-50">
+                                <strong class="block text-gray-800 mb-1"><i class="fas fa-soap text-blue-500"></i> 洗劑選擇</strong>
+                                <p class="text-gray-600">選用<strong>無香料、無染色劑</strong>的溫和洗衣精。避免一般柔軟精（易殘留化學物），或改用烘衣機增加柔軟度。</p>
+                            </div>
+                            <div class="border border-gray-200 p-3 rounded hover:bg-gray-50 md:col-span-2">
+                                <strong class="block text-gray-800 mb-1"><i class="fas fa-tshirt text-indigo-500"></i> 新衣處理</strong>
+                                <p class="text-gray-600">穿著前務必清洗，去除生產過程殘留的甲醛與染料。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subsection: Environment -->
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2 border-l-4 border-yellow-400 pl-2">居家環境管理</h4>
+                        <ul class="list-disc ml-5 text-sm text-gray-700 space-y-1">
+                            <li><strong>濕度控制：</strong>維持在 <strong>40-50%</strong>。過濕助長塵蟎黴菌，過乾加劇搔癢。</li>
+                            <li><strong>減少過敏原：</strong>移除地毯、厚重窗簾及絨毛玩具（塵蟎溫床）。</li>
+                        </ul>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="overflow-x-auto">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2 border-l-4 border-purple-400 pl-2">不同皮膚問題的護理差異</h4>
+                        <table class="w-full text-sm text-left text-gray-600 border border-gray-200">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr>
+                                    <th class="px-3 py-2 border-b">皮膚問題</th>
+                                    <th class="px-3 py-2 border-b">衣物重點</th>
+                                    <th class="px-3 py-2 border-b">護理核心</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b">
+                                    <td class="px-3 py-2 font-medium text-gray-900">濕疹 (Eczema)</td>
+                                    <td class="px-3 py-2">純棉/絲質，減少摩擦</td>
+                                    <td class="px-3 py-2">60°C熱水殺塵蟎，避免香精</td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <td class="px-3 py-2 font-medium text-gray-900">熱痱 (Heat Rash)</td>
+                                    <td class="px-3 py-2"><strong>絕對寬鬆</strong>，透氣吸汗</td>
+                                    <td class="px-3 py-2">環境涼爽，勤換濕衣</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="px-3 py-2 font-medium text-gray-900">疥瘡 (Scabies)</td>
+                                    <td class="px-3 py-2">無特殊材質，需日日換洗</td>
+                                    <td class="px-3 py-2"><strong>高溫烘乾/清洗</strong>殺蟲</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 止癢 -->
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition">
+                <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm">4</span>
+                    止癢與飲食 (Relief & Diet)
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 p-2 rounded text-blue-600"><i class="fas fa-snowflake"></i></div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">物理止癢</h4>
+                            <p class="text-sm text-gray-600">冷敷患處、輕拍代替抓撓。保持室溫 22-24°C。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-green-100 p-2 rounded text-green-600"><i class="fas fa-apple-alt"></i></div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">飲食建議</h4>
+                            <p class="text-sm text-gray-600">低糖、原型食物為主。避免加工食品與已知過敏原。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-12 text-center text-sm">
+        <p>&copy; 2025 皮膚健康指南. Created with AI Assistance.</p>
+    </footer>
+
+    <script>
+        function calculateDiagnosis() {
+            const groupA = document.querySelectorAll('input[name="groupA"]:checked').length;
+            const groupB = document.querySelectorAll('input[name="groupB"]:checked').length;
+            const groupC = document.querySelectorAll('input[name="groupC"]:checked').length;
+
+            const resultSection = document.getElementById('result');
+            const resultHeader = document.getElementById('result-header');
+            const titleEl = document.getElementById('diagnosis-title');
+            const principleEl = document.getElementById('core-principle');
+            const specificAdviceEl = document.getElementById('specific-advice');
+
+            let diagnosis = "";
+            let principle = "";
+            let colorClass = "";
+            let specificContent = "";
+
+            // Logic: Simple majority
+            if (groupA === 0 && groupB === 0 && groupC === 0) {
+                alert("請至少勾選一個症狀以進行分析。");
+                return;
+            }
+
+            if (groupA >= groupB && groupA >= groupC) {
+                // Heat Rash
+                diagnosis = "熱痱 (Heat Rash)";
+                principle = "降溫、通風";
+                colorClass = "bg-red-500";
+                specificContent = `
+                    <div class="p-4 bg-red-50 border-l-4 border-red-500 text-red-900 rounded">
+                        <h4 class="font-bold text-lg mb-2"><i class="fas fa-temperature-high mr-2"></i>關鍵建議</h4>
+                        <p class="mb-2">您的症狀顯示這很可能是因為汗腺阻塞造成的「熱痱」。</p>
+                        <ul class="list-disc ml-5 space-y-1">
+                            <li><strong>切勿使用油膏：</strong>請立刻停止使用凡士林或厚重的乳霜，這會讓情況惡化！</li>
+                            <li><strong>保持乾爽：</strong>使用爐甘石洗劑 (Calamine Lotion) 或蘆薈凝膠。</li>
+                            <li><strong>降溫：</strong>開冷氣、沖冷水澡是緩解症狀最快的方法。</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (groupB >= groupA && groupB >= groupC) {
+                // Eczema
+                diagnosis = "濕疹 / 異位性皮膚炎";
+                principle = "保濕、修復";
+                colorClass = "bg-blue-500";
+                specificContent = `
+                    <div class="p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-900 rounded">
+                        <h4 class="font-bold text-lg mb-2"><i class="fas fa-tint mr-2"></i>關鍵建議</h4>
+                        <p class="mb-2">您的症狀符合「濕疹」特徵，修復皮膚屏障是首要任務。</p>
+                        <ul class="list-disc ml-5 space-y-1">
+                            <li><strong>勤保濕：</strong>這是最重要的！請使用含神經醯胺 (Ceramides) 的乳霜或凡士林。</li>
+                            <li><strong>劑型選擇：</strong>越油越好。冬天請用油膏 (Ointment)。</li>
+                            <li><strong>止癢：</strong>若有傷口或出水，請依醫師指示使用藥膏，切勿單純依賴保濕劑。</li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                // Fungal
+                diagnosis = "黴菌感染 / 體癬";
+                principle = "抗黴、乾燥";
+                colorClass = "bg-yellow-500";
+                specificContent = `
+                    <div class="p-4 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-900 rounded">
+                        <h4 class="font-bold text-lg mb-2"><i class="fas fa-bacteria mr-2"></i>關鍵建議</h4>
+                        <p class="mb-2">您的症狀可能與黴菌感染有關（如體癬、股癬）。</p>
+                        <ul class="list-disc ml-5 space-y-1">
+                            <li><strong>不可亂擦藥：</strong>切勿使用純類固醇藥膏，這會成為黴菌的養分，讓範圍擴大！</li>
+                            <li><strong>保持乾燥：</strong>如果是足部或胯下，請確保通風。</li>
+                            <li><strong>就醫：</strong>這通常需要抗黴菌藥膏治療，建議儘快諮詢皮膚科醫師。</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Update UI
+            resultHeader.className = `rounded-t-xl p-6 text-white text-center ${colorClass}`;
+            titleEl.textContent = diagnosis;
+            principleEl.textContent = principle;
+            principleEl.className = `font-bold px-2 py-1 rounded text-${colorClass.replace('bg-', '')} bg-white`;
+            specificAdviceEl.innerHTML = specificContent;
+
+            resultSection.classList.remove('hidden');
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetForm() {
+            document.getElementById('diagnosisForm').reset();
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('survey').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
